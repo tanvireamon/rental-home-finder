@@ -171,10 +171,14 @@ export default function Home() {
                 </select>
 
                 <select className="px-4 py-4 rounded-2xl bg-white/90 outline-none">
-                  <option>Furnished</option>
-                  <option>Furnished</option>
-                  <option>Non-Furnished</option>
-                </select>
+  <option>Property Type</option>
+  <option>Family</option>
+  <option>Bachelor</option>
+  <option>Office</option>
+  <option>Sublet</option>
+  <option>Hostel</option>
+  <option>Shop</option>
+</select>
               </div>
 
               <button className="w-full bg-emerald-600 hover:bg-emerald-700 transition py-4 rounded-2xl text-white text-lg font-bold shadow-lg shadow-emerald-500/40">
