@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Home() {
   const featuredAreas = [
     {
@@ -82,9 +83,9 @@ export default function Home() {
             </a>
           </div>
 
-          <button className="bg-emerald-600 hover:bg-emerald-700 transition px-5 py-2 rounded-full text-white font-semibold shadow-lg shadow-emerald-300">
-            Login
-          </button>
+          <Link to="/login" className="bg-emerald-600 hover:bg-emerald-700 transition px-5 py-2 rounded-full text-white font-semibold shadow-lg shadow-emerald-300 inline-block">
+  Login
+</Link>
         </div>
       </nav>
 
@@ -119,9 +120,9 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap gap-4 mt-8">
-              <button className="bg-emerald-600 hover:bg-emerald-700 transition px-7 py-4 rounded-2xl text-white font-bold shadow-2xl shadow-emerald-500/30">
-                Browse Homes
-              </button>
+             <Link to="/browse" className="bg-emerald-600 hover:bg-emerald-700 transition px-7 py-4 rounded-2xl text-white font-bold shadow-2xl shadow-emerald-500/30 inline-block">
+  Browse Homes
+</Link>
 
               <button className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-lg transition px-7 py-4 rounded-2xl text-white font-bold">
                 Become Landlord
@@ -132,7 +133,7 @@ export default function Home() {
           {/* Search Card */}
           <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-7 shadow-2xl">
             <h2 className="text-2xl font-bold text-white mb-6">
-              Search Your Dream Home
+              Search Your Rental Home
             </h2>
 
             <div className="space-y-4">
