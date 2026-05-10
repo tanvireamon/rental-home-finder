@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+
 export default function Home() {
   const featuredAreas = [
     {
@@ -73,19 +74,26 @@ export default function Home() {
           </div>
 
           <div className="hidden md:flex items-center gap-8 font-medium">
-            <Link to="/" className="hover:text-emerald-600 transition">
-              Home
-            </Link>
-            <Link to="/browse" className="hover:text-emerald-600 transition">
-              Listings
-            </Link>
-            <a href="#about" className="hover:text-emerald-600 transition">
-              About
-            </a>
-            <a href="#contact" className="hover:text-emerald-600 transition">
-              Contact
-            </a>
-          </div>
+  <Link to="/" className="hover:text-emerald-600 transition">
+    Home
+  </Link>
+
+  <Link to="/browse" className="hover:text-emerald-600 transition">
+    Listings
+  </Link>
+
+  <Link to="/profile" className="hover:text-emerald-600 transition">
+    Profile
+  </Link>
+
+  <a href="#about" className="hover:text-emerald-600 transition">
+    About
+  </a>
+
+  <a href="#contact" className="hover:text-emerald-600 transition">
+    Contact
+  </a>
+</div>
 
           <Link to="/login" className="bg-emerald-600 hover:bg-emerald-700 transition px-5 py-2 rounded-full text-white font-semibold shadow-lg shadow-emerald-300 inline-block">
             Login
@@ -128,9 +136,12 @@ export default function Home() {
                 Browse Homes
               </Link>
 
-              <button className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-lg transition px-7 py-4 rounded-2xl text-white font-bold">
-                Become Landlord
-              </button>
+             <Link
+  to="/landlord/dashboard"
+  className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-lg transition px-7 py-4 rounded-2xl text-white font-bold inline-block"
+>
+  Become Landlord
+</Link>
             </div>
           </div>
 
