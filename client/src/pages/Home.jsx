@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 export default function Home() {
   const featuredAreas = [
     {
@@ -29,6 +30,7 @@ export default function Home() {
 
   const featuredHomes = [
     {
+      id: 1,
       title: 'Modern Family Apartment',
       area: 'Mirpur DOHS',
       price: '৳ 22,000/month',
@@ -38,6 +40,7 @@ export default function Home() {
         'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop',
     },
     {
+      id: 2,
       title: 'Luxury Bachelor Studio',
       area: 'Uttara Sector 7',
       price: '৳ 15,000/month',
@@ -47,6 +50,7 @@ export default function Home() {
         'https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop',
     },
     {
+      id: 3,
       title: 'Cozy Furnished Flat',
       area: 'Dhanmondi 27',
       price: '৳ 30,000/month',
@@ -63,29 +67,29 @@ export default function Home() {
       <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/70 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl md:text-3xl font-black text-emerald-700">
+            <Link to="/" className="text-2xl md:text-3xl font-black text-emerald-700">
               BashaFinder BD
-            </h1>
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-8 font-medium">
-            <a href="#" className="hover:text-emerald-600 transition">
+            <Link to="/" className="hover:text-emerald-600 transition">
               Home
-            </a>
-            <a href="#" className="hover:text-emerald-600 transition">
+            </Link>
+            <Link to="/browse" className="hover:text-emerald-600 transition">
               Listings
-            </a>
-            <a href="#" className="hover:text-emerald-600 transition">
+            </Link>
+            <a href="#about" className="hover:text-emerald-600 transition">
               About
             </a>
-            <a href="#" className="hover:text-emerald-600 transition">
+            <a href="#contact" className="hover:text-emerald-600 transition">
               Contact
             </a>
           </div>
 
           <Link to="/login" className="bg-emerald-600 hover:bg-emerald-700 transition px-5 py-2 rounded-full text-white font-semibold shadow-lg shadow-emerald-300 inline-block">
-  Login
-</Link>
+            Login
+          </Link>
         </div>
       </nav>
 
@@ -120,9 +124,9 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap gap-4 mt-8">
-             <Link to="/browse" className="bg-emerald-600 hover:bg-emerald-700 transition px-7 py-4 rounded-2xl text-white font-bold shadow-2xl shadow-emerald-500/30 inline-block">
-  Browse Homes
-</Link>
+              <Link to="/browse" className="bg-emerald-600 hover:bg-emerald-700 transition px-7 py-4 rounded-2xl text-white font-bold shadow-2xl shadow-emerald-500/30 inline-block">
+                Browse Homes
+              </Link>
 
               <button className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-lg transition px-7 py-4 rounded-2xl text-white font-bold">
                 Become Landlord
@@ -133,7 +137,7 @@ export default function Home() {
           {/* Search Card */}
           <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-7 shadow-2xl">
             <h2 className="text-2xl font-bold text-white mb-6">
-              Search Your Rental Home
+              Search Your Dream Home
             </h2>
 
             <div className="space-y-4">
@@ -203,7 +207,7 @@ export default function Home() {
           {featuredAreas.map((area, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-3xl shadow-xl cursor-pointer"
+              className="group relative overflow-hidden rounded-3xl shadow-xl cursor-pointer hover:shadow-2xl transition"
             >
               <img
                 src={area.image}
@@ -233,15 +237,15 @@ export default function Home() {
               </p>
             </div>
 
-            <button className="bg-slate-900 hover:bg-black transition px-6 py-3 rounded-2xl text-white font-semibold w-fit">
+            <Link to="/browse" className="bg-slate-900 hover:bg-black transition px-6 py-3 rounded-2xl text-white font-semibold w-fit inline-block">
               View All Listings
-            </button>
+            </Link>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {featuredHomes.map((home, index) => (
+            {featuredHomes.map((home) => (
               <div
-                key={index}
+                key={home.id}
                 className="bg-slate-50 rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 transition duration-300"
               >
                 <div className="relative">
@@ -279,9 +283,9 @@ export default function Home() {
                       <span>Verified Owner</span>
                     </div>
 
-                    <button className="bg-emerald-600 hover:bg-emerald-700 transition px-5 py-3 rounded-xl text-white font-semibold">
+                    <Link to={`/listing/${home.id}`} className="bg-emerald-600 hover:bg-emerald-700 transition px-5 py-3 rounded-xl text-white font-semibold inline-block">
                       View Details
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -344,9 +348,9 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap gap-4 mt-8">
-              <button className="bg-white text-emerald-700 hover:bg-slate-100 transition px-7 py-4 rounded-2xl font-bold">
+              <Link to="/browse" className="bg-white text-emerald-700 hover:bg-slate-100 transition px-7 py-4 rounded-2xl font-bold inline-block">
                 Get Started
-              </button>
+              </Link>
 
               <button className="border border-white/30 hover:bg-white/10 transition px-7 py-4 rounded-2xl font-bold">
                 Learn More
@@ -371,10 +375,10 @@ export default function Home() {
           <div>
             <h3 className="text-white font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-slate-400">
-              <li>Home</li>
-              <li>Listings</li>
-              <li>About</li>
-              <li>Contact</li>
+              <li><Link to="/" className="hover:text-white transition">Home</Link></li>
+              <li><Link to="/browse" className="hover:text-white transition">Listings</Link></li>
+              <li><a href="#" className="hover:text-white transition">About</a></li>
+              <li><a href="#" className="hover:text-white transition">Contact</a></li>
             </ul>
           </div>
 
