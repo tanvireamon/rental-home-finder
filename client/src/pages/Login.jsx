@@ -1,6 +1,27 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Login() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    rememberMe: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Login Data:", formData);
+    // Add your login logic here
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 relative overflow-hidden">
       {/* Background Glow */}
@@ -39,7 +60,7 @@ export default function Login() {
             Enter your details to access your account
           </p>
 
-          <form className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
             {/* Email */}
             <div>
               <label className="text-sm font-semibold text-slate-600">
@@ -47,8 +68,12 @@ export default function Login() {
               </label>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="you@example.com"
                 className="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-100 outline-none focus:ring-4 focus:ring-emerald-300 transition"
+                required
               />
             </div>
 
@@ -59,15 +84,24 @@ export default function Login() {
               </label>
               <input
                 type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="••••••••"
                 className="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-100 outline-none focus:ring-4 focus:ring-emerald-300 transition"
+                required
               />
             </div>
 
             {/* Options */}
             <div className="flex items-center justify-between text-sm">
               <label className="flex items-center gap-2 text-slate-600">
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  name="rememberMe"
+                  checked={formData.rememberMe}
+                  onChange={handleChange}
+                />
                 Remember me
               </label>
 
