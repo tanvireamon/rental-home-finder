@@ -78,21 +78,24 @@ export default function Home() {
     Home
   </Link>
 
-  <Link to="/browse" className="hover:text-emerald-600 transition">
-    Listings
-  </Link>
+  <Link 
+  to="/browse" 
+  className="hover:text-emerald-600 transition font-bold text-emerald-600"
+>
+  Listings
+</Link>
 
   <Link to="/profile" className="hover:text-emerald-600 transition">
     Profile
   </Link>
 
-  <a href="#about" className="hover:text-emerald-600 transition">
-    About
-  </a>
+  <Link to="/about" className="hover:text-emerald-600 transition">
+  About
+</Link>
 
-  <a href="#contact" className="hover:text-emerald-600 transition">
-    Contact
-  </a>
+<Link to="/contact" className="hover:text-emerald-600 transition">
+  Contact
+</Link>
 </div>
 
           <Link to="/login" className="bg-emerald-600 hover:bg-emerald-700 transition px-5 py-2 rounded-full text-white font-semibold shadow-lg shadow-emerald-300 inline-block">
@@ -392,8 +395,17 @@ export default function Home() {
             <ul className="space-y-2 text-slate-400">
               <li><Link to="/" className="hover:text-white transition">Home</Link></li>
               <li><Link to="/browse" className="hover:text-white transition">Listings</Link></li>
-              <li><a href="#" className="hover:text-white transition">About</a></li>
-              <li><a href="#" className="hover:text-white transition">Contact</a></li>
+              <li>
+  <Link to="/about" className="hover:text-white transition">
+    About
+  </Link>
+</li>
+
+<li>
+  <Link to="/contact" className="hover:text-white transition">
+    Contact
+  </Link>
+</li>
             </ul>
           </div>
 
